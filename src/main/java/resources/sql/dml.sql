@@ -1,0 +1,1 @@
+insert into member(username, password) values('bingbingpa','1234');
