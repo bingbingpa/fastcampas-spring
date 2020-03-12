@@ -7,7 +7,7 @@
   <groupId>com.bingbingpa</groupId>
   <artifactId>study-spring</artifactId>
   <version>1.0-SNAPSHOT</version>
-
+  <packaging>war</packaging>
   <name>study-spring</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
@@ -40,6 +40,12 @@
 		<artifactId>lombok</artifactId>
 		<version>1.18.12</version>
 		<scope>provided</scope>
+	</dependency>
+<!-- 	api라고 되어 있는 것들에는 구현체가 없고 인터페이스만 있다. -->
+	<dependency>
+	  <groupId>javax.servlet</groupId>
+	  <artifactId>javax.servlet-api</artifactId>
+	  <version>4.0.1</version>
 	</dependency>
   </dependencies>
 

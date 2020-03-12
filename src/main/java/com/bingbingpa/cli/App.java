@@ -1,4 +1,4 @@
-package com.bingbingpa;
+package com.bingbingpa.cli;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
