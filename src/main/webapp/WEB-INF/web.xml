@@ -10,6 +10,14 @@
 		<servlet-name>simple</servlet-name>
 		<url-pattern>/simple</url-pattern>
 	</servlet-mapping>
+	<filter>
+		<filter-name>simpleFilter</filter-name>
+		<filter-class>com.bingbingpa.web.SimpleFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>simpleFilter</filter-name>
+		<url-pattern>/simple</url-pattern>
+	</filter-mapping>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
