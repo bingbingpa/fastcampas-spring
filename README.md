@@ -7,3 +7,7 @@
 
 - JSESSIONID로 유저를 판별한다.
 
+
+### spring 
+
+- name 속성을 통해서도 bean을 찾을 수 있다.
