@@ -6,4 +6,14 @@
 	
 	<bean id="daoFactory" class="com.bingbingpa.cli.DaoFactory"></bean>	
 	<bean id="dao" class="com.bingbingpa.cli.Dao" factory-bean="daoFactory" factory-method="createDao"></bean>
+	
+	<bean id="a" class="com.bingbingpa.cli.di.A">
+<!-- 	setter를 통한 주입. name은 setB에서 set을 뺀 이름을 적어준다. -->
+		<property name ="b" ref="b"></property>
+<!-- 		생성자를 통합 주입 -->
+<!-- 		<constructor-arg ref="b"></constructor-arg> -->
+	</bean>
+	<bean id="b" class="com.bingbingpa.cli.di.B">
+		<constructor-arg value="true"></constructor-arg>
+	</bean>
 </beans>

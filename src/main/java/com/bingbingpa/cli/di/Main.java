@@ -1,20 +1,13 @@
-package com.bingbingpa.cli;
+ package com.bingbingpa.cli.di;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import lombok.extern.slf4j.Slf4j;
-
-/**
- * Hello world!
- *
- */
-@Slf4j
 public class Main {
-	public static void main(String[] args) {
-		log.info("Hello World!");
+	public static void main(String...args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("dao.xml");
-		Dao dao = context.getBean("dao", Dao.class);
-		dao.run();
+		// 관계를 설정으로 빼고 비즈니스 로직에 더 집중 할 수 있다.
+		A a = context.getBean("a", A.class);
+		a.print();
 	}
 }
