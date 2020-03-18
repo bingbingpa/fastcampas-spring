@@ -15,8 +15,7 @@ public class Main {
 		log.info("Hello World!");
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("dao.xml");
-		log.info("context ====== {} " , context);
-		Dao dao = context.getBean(Dao.class);
+		Dao dao = context.getBean("dao", Dao.class);
 		dao.run();
 	}
 }

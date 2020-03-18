@@ -4,5 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean class="com.bingbingpa.cli.Dao"></bean>
+	<bean id="daoFactory" class="com.bingbingpa.cli.DaoFactory"></bean>	
+	<bean id="dao" class="com.bingbingpa.cli.Dao" factory-bean="daoFactory" factory-method="createDao"></bean>
 </beans>
