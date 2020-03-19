@@ -4,8 +4,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="daoFactory" class="com.bingbingpa.cli.DaoFactory"></bean>	
-	<bean id="dao" class="com.bingbingpa.cli.Dao" factory-bean="daoFactory" factory-method="createDao"></bean>
+	<bean id="connectionFactory" class="com.bingbingpa.cli.ConnectionFactory"/>
+	<bean id="connection" class="java.sql.Connection" factory-bean="connectionFactory" factory-method="createConnection"/>
+	<bean id="dao" class="com.bingbingpa.cli.Dao">
+		<constructor-arg ref="connection"/>
+	</bean>	
 	
 	<bean id="a" class="com.bingbingpa.cli.di.A">
 <!-- 	setter를 통한 주입. name은 setB에서 set을 뺀 이름을 적어준다. -->
