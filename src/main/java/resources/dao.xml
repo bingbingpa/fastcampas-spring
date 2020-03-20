@@ -4,7 +4,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="connectionFactory" class="com.bingbingpa.cli.ConnectionFactory"/>
+	<bean id="connectionFactory" class="com.bingbingpa.cli.ConnectionFactory">
+		<constructor-arg name="url" value="jdbc:h2:mem:test"/>
+		<constructor-arg name="user" value="sa"/>
+		<constructor-arg name="password" value=""/>
+	</bean>
 	<bean id="connection" class="java.sql.Connection" factory-bean="connectionFactory" factory-method="createConnection"/>
 	<bean id="dao" class="com.bingbingpa.cli.Dao">
 		<constructor-arg ref="connection"/>
