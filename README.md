@@ -15,6 +15,7 @@
 - @Autowired : bean & bean 의 관계를 연결시켜준다.
 - @Configuration : bean으로 등록되고 스프링 설정과 관련된 것이라는 것을 알려준다.
 - bean의 이름은 그 메소드명으로 설정된다.
+- @Component - 런타임에 동작하고 자동적으로 detecting하여 bean으로 등록한다. 
 ### Annotation VS XML
 
 - xml로 설정시 장점은 xml만 보고도 스프링의 설정을 볼 수 있고 코드와 분리가 가능하다. 하지만 설정이 많을 경우 xml이 너무 커져 보기 힘들어진다. 
