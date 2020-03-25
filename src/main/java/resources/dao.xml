@@ -8,7 +8,7 @@
         https://www.springframework.org/schema/context/spring-context.xsd">
 	
 	<context:annotation-config/>
-	
+<!-- 	<context:component-scan base-package="com.bingbingpa.cli"/> -->
 	<bean id="connectionFactory" class="com.bingbingpa.cli.ConnectionFactory">
 		<constructor-arg name="driverClass" value="org.h2.Driver"/>
 		<constructor-arg name="url" value="jdbc:h2:mem:test"/>
@@ -19,6 +19,8 @@
 	<bean id="dao" class="com.bingbingpa.cli.Dao">
 		<constructor-arg ref="connection"/>
 	</bean>	
+	
+	<bean class="com.bingbingpa.cli.AppConfig" />
 	
 	<bean id="a" class="com.bingbingpa.cli.di.A">
 <!-- 	setter를 통한 주입. name은 setB에서 set을 뺀 이름을 적어준다. -->
