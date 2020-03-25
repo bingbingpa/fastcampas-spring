@@ -1,6 +1,7 @@
 ### lombok
 
 - @Data : Getter, Setter, ToString, @EqualsAndHashCode 을 모두 포함하는 어노테이션
+- 기존에 쓰던 이클립스에서 이 프로젝트를 import시 lombok 관련 설정들이 다 에러가 났다. java -jar lombok.jar를 해도 해결되지 않았고 기존 이클립스에 설정된  lombok.jar를 지우고 m2프로젝트의 lombok.jar로 java -jar 로 실행하면 해당 문제가 해결된다.
 
  
 ### session 
