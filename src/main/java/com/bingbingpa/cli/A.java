@@ -12,9 +12,13 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class A {
 	@Resource private B b;
-//	@Autowired private ApplicationContext context;
-//	@Value("#{systemProperties['hello']") String property;
 	
+	
+	public A(B b) {
+		super();
+		this.b = b;
+	}
+
 	@PostConstruct
 	void init() {
 		log.info("A post construct");

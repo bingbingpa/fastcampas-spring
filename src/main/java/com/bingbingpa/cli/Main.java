@@ -22,7 +22,10 @@ import lombok.extern.slf4j.Slf4j;
 public class Main {
 	public static void main(String[] args) throws SQLException {
 		log.info("Hello World!");
-		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("dao.xml");
+//		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("dao.xml");
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		context.register(AppConfig.class, AppDefaultConfig.class, AppDevConfig.class);
+		context.refresh();
 		Dao dao = context.getBean(Dao.class);
 		dao.run();
 		context.close();
