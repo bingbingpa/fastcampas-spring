@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,9 +22,9 @@ import lombok.extern.slf4j.Slf4j;
 public class Main {
 	public static void main(String[] args) throws SQLException {
 		log.info("Hello World!");
-		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
-		B b = context.getBean(B.class);
-
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("dao.xml");
+		Dao dao = context.getBean(Dao.class);
+		dao.run();
 		context.close();
 	}
 }
