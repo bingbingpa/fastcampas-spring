@@ -2,13 +2,13 @@ package com.bingbingpa.cli;
 
 import java.sql.SQLException;
 
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.bingbingpa.cli.service.MyService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,8 +26,8 @@ public class Main {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 		context.register(AppConfig.class);
 		context.refresh();
-		Dao dao = context.getBean(Dao.class);
-		dao.run();
+		MyService dao = context.getBean(MyService.class);
+		dao.check();
 		context.close();
 	}
 }

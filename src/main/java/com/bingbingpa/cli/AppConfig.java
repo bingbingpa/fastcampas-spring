@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+
+import com.bingbingpa.cli.service.MyService;
 
 @Configuration
 @Profile("default | dev") // 배열로 넣어도 가능 : {"default", "dev"}
@@ -42,5 +45,15 @@ public class AppConfig {
 			@Value("${jdbc.password}") String password) {
 		
 		return new ConnectionFactory(driverClass, url, username, password);
+	}
+	
+	@Bean
+	public LocalValidatorFactoryBean localValidatorFactoryBean() {
+		return new LocalValidatorFactoryBean();
+	}
+	
+	@Bean
+	public MyService myService() {
+		return new MyService();
 	}
 }
