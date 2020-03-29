@@ -2,13 +2,15 @@ package com.bingbingpa.cli.res;
 
 import java.io.IOException;
 
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
 	public static void main(String...args) throws IOException {
-		ClassPathResource resource = new ClassPathResource("dao.xml");
-		byte[] bytes = resource.getInputStream().readAllBytes();
-		String daoStr = new String(bytes);
-		System.out.println(daoStr);
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		context.register(ResourceExample.class);
+		context.refresh();
+		ResourceExample re = context.getBean(ResourceExample.class);
+		re.print();
+		context.close();
 	}
 }
