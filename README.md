@@ -21,6 +21,7 @@
 - @Service : 비즈니스로직의 서비스를 당당하믄 bean이다. 
 - spring-context-indexer : ComponentScan을 빠르게 하기 위한 indexer. build시에 META-INF하위에 spring.componeents가 생긴다.
 - @Bean에 initMethod, destroyMethod 를 지정 할 수 있다.
+- spring의 AOP는 method단위로만 동작한다.
 
 ### Annotation VS XML
 
