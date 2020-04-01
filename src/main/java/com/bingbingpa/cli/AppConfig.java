@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
@@ -15,6 +16,7 @@ import com.bingbingpa.cli.service.MyService;
 @Configuration
 @Profile("default | dev") // 배열로 넣어도 가능 : {"default", "dev"}
 @PropertySource("classpath:application-${spring.profiles.active}.properties")
+@EnableAspectJAutoProxy
 public class AppConfig {
 	
 	@Bean

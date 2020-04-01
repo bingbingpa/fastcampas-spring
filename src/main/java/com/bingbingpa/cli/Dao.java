@@ -1,7 +1,6 @@
 package com.bingbingpa.cli;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import lombok.extern.slf4j.Slf4j;

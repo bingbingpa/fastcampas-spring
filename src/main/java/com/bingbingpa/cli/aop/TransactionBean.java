@@ -4,17 +4,25 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Aspect
 public class TransactionBean {
 	private Connection connection;
 	
 	public TransactionBean(Connection connection) {
 		this.connection = connection;
 	}
+	
+	@Pointcut("execution(* com.bingbingpa.cli.Dao.insert(..))")
+	public void transactionPointcut() {}
 
+	@Around("transactionPointcut()")
 	public Object aroundTransaction(ProceedingJoinPoint pjp) throws SQLException {
 		log.error(">>> before aop transaction");
 		try {
