@@ -14,18 +14,13 @@ public class Dao {
 		this.connection = connection;
 	}
 	
-	public void run() throws SQLException {
+	public void insert() throws SQLException {
 		var statement = connection.createStatement();
-		connection.setAutoCommit(false);
-		statement.execute(
-				"create table member (id int auto_increment,username varchar(255) not null,password varchar(255) not null,primary key(id))");
-		try {
-			statement.executeUpdate("insert into member(username, password) values('bingbingpa','1234')");
-			connection.commit();
-		} catch (SQLException e) {
-			connection.rollback();
-		}
-//			if(true) throw new RuntimeException("sql error");
+		statement.executeUpdate("insert into member(username, password) values('bingbingpa','1234')");
+	}
+	
+	public void print() throws SQLException {
+		var statement = connection.createStatement();
 		var resultSet = statement.executeQuery("select id, username, password from member");
 		while (resultSet.next()) {
 			var member = new Member(resultSet);

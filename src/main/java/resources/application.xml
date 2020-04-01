@@ -11,14 +11,27 @@
         
     <aop:config>
 	    <aop:aspect id="myAspect" ref="aBean">
-	    	<aop:pointcut id="businessService" expression="execution(* com.bingbingpa.cli.aop.Service.*(..))"/>
-	    	<aop:around pointcut-ref="businessService" method="aroundLog"/>
+	    	<aop:pointcut id="businessService" expression="execution(* com.bingbingpa.cli.Dao.insert(..))"/>
+	    	<aop:around pointcut-ref="businessService" method="aroundTransaction"/>
 <!--    	        <aop:before pointcut-ref="businessService" method="beforeLog"/> -->
 <!--    	        <aop:after pointcut-ref="businessService" method="afterLog"/> -->
 <!--    	        <aop:after-returning pointcut-ref="businessService" method="afterReturningLog"/> -->
 <!--    	        <aop:after-throwing pointcut-ref="businessService" method="afterThrowingLog"/> -->
 	    </aop:aspect>
 	</aop:config>
-	<bean id="aBean" class="com.bingbingpa.cli.aop.AopBean"/>
+	<bean id="aBean" class="com.bingbingpa.cli.aop.TransactionBean">
+		<constructor-arg ref="connection"/>
+	</bean>
 	<bean id="service" class="com.bingbingpa.cli.aop.Service"/>
+	
+	<bean id="connectionFactory" class="com.bingbingpa.cli.ConnectionFactory">
+		<constructor-arg name="driverClass" value="org.h2.Driver"/>
+		<constructor-arg name="url" value="jdbc:h2:mem:test"/>
+		<constructor-arg name="user" value="sa"/>
+		<constructor-arg name="password" value=""/>
+	</bean>
+	<bean id="connection" class="java.sql.Connection" factory-bean="connectionFactory" factory-method="createConnection"/>
+	<bean id="dao" class="com.bingbingpa.cli.Dao">
+		<constructor-arg ref="connection"/>
+	</bean>	
 </beans>

@@ -1,23 +1,34 @@
 package com.bingbingpa.cli.aop;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
-import org.hibernate.validator.cfg.context.ContainerElementConstraintMappingContext;
-import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.bingbingpa.cli.Dao;
 
 
 public class Main {
-	public static void main(String...args) {
+	public static void main(String...args) throws SQLException {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
-		Service bean = context.getBean(Service.class);
-		bean.log();
-		context.close();
+		createTable(context.getBean(Connection.class));
+		Dao bean = context.getBean(Dao.class);
+		bean.insert();
+		bean.print();
+//		bean.log();
+//		context.close();
 //		ProxyFactory factory = new ProxyFactory(new SimplePojo());
 //		factory.addInterface(Pojo.class);
 //		factory.addAdvice(new RetryAdvice());
 //		Pojo pojo = (Pojo) factory.getProxy();
 //		pojo.foo();
+	}
+	
+	public static void createTable(Connection connection) throws SQLException {
+		connection.createStatement()
+			.execute("create table member (id int auto_increment,username varchar(255) not null,password varchar(255) not null,primary key(id))"	);
 	}
 }
 
