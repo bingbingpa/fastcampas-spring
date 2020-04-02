@@ -9,8 +9,6 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 
-import com.bingbingpa.cli.aop.TransactionBean;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**

@@ -1,4 +1,4 @@
-package com.bingbingpa.cli.aop;
+package com.bingbingpa.cli;
 
 import java.sql.Connection;
 import java.sql.SQLException;

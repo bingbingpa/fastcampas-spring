@@ -7,15 +7,17 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
-import com.bingbingpa.cli.service.MyService;
+import com.bingbingpa.cli.temp.A;
+import com.bingbingpa.cli.temp.B;
+import com.bingbingpa.cli.temp.service.MyService;
 
 @Configuration
-@Profile("default | dev") // 배열로 넣어도 가능 : {"default", "dev"}
-@PropertySource("classpath:application-${spring.profiles.active}.properties")
+//@Profile("default | dev") // 배열로 넣어도 가능 : {"default", "dev"}
+//@PropertySource("classpath:application-${spring.profiles.active}.properties")
+@PropertySource("classpath:application-default.properties")
 @EnableAspectJAutoProxy
 public class AppConfig {
 	
