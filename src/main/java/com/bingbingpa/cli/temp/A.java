@@ -1,4 +1,4 @@
-package com.bingbingpa.cli;
+package com.bingbingpa.cli.temp;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

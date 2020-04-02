@@ -1,4 +1,4 @@
-package com.bingbingpa.cli.di;
+package com.bingbingpa.cli.temp.di;
 
 public class A {
 	private B b;

@@ -1,4 +1,4 @@
-package com.bingbingpa.cli;
+package com.bingbingpa.cli.temp;
 
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
- package com.bingbingpa.cli.di;
+ package com.bingbingpa.cli.temp.di;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

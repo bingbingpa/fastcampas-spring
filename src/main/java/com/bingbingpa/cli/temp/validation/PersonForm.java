@@ -1,4 +1,4 @@
-package com.bingbingpa.cli.validation;
+package com.bingbingpa.cli.temp.validation;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;

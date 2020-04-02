@@ -1,4 +1,4 @@
-package com.bingbingpa.cli.res;
+package com.bingbingpa.cli.temp.res;
 
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.ResourceLoader;

@@ -1,4 +1,4 @@
-package com.bingbingpa.cli.res;
+package com.bingbingpa.cli.temp.res;
 
 import java.io.IOException;
 
