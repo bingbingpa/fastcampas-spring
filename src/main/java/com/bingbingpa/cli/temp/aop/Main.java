@@ -7,15 +7,15 @@ import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.bingbingpa.cli.Dao;
+import com.bingbingpa.cli.dao.MemberDao;
 
 
 public class Main {
 	public static void main(String...args) throws SQLException {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
 		createTable(context.getBean(Connection.class));
-		Dao bean = context.getBean(Dao.class);
-		bean.insert();
+		MemberDao bean = context.getBean(MemberDao.class);
+//		bean.insert();
 		bean.print();
 //		bean.log();
 //		context.close();

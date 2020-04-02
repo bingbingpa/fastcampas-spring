@@ -1,4 +1,4 @@
-package com.bingbingpa.cli;
+package com.bingbingpa.cli.entity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

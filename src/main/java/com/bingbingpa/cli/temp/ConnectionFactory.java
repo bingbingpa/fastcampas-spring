@@ -1,4 +1,4 @@
-package com.bingbingpa.cli;
+package com.bingbingpa.cli.temp;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
